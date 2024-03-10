@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% load static %}
+  <title>{% block title %}{% endblock %}Crash blog</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+   <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#284b63',
+            secundary: '#d9d9d9',
+            tertiary: '#3c6e71',
+            white: '#ffffff',
+            dark: '#353535',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white">
+  {% include 'components/header.html' %}
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  {% include 'components/footer.html' %}
+</html>
