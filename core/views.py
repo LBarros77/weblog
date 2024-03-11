@@ -6,8 +6,13 @@ from blog.models import Post
 
 def home(request):
     posts = Post.objects.filter(status=Post.ACTIVE)
-
-    return render(request, 'core/home.html', {'posts': posts})
+    recent_posts = posts[:3]
+    context = {
+        'posts': posts,
+        'recent_posts': recent_posts
+    }
+    print(context)
+    return render(request, 'core/home.html', context)
 
 def about(request):
     return render(request, 'core/about.html')

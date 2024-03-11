@@ -23,8 +23,21 @@
     </div>
   </section>
 
-  <section>
-    <h2>Recent blog post</h2>
-    <div class="grid w-7xl:grid-cols"></div>
+  <section class="relative pt-8">
+    <h2 class="text-xl font-semibold text-gray-900 mb-3">Recent blog posts</h2>
+    <div class="flex min-sm:flex-col items-center justify-around gap-8">
+      {% for post in recent_posts %}
+      <div class="relative">
+        <div class="w-100">
+          <img src="media/{{post.image}}" alt="" width="300px" height="300px">
+        </div>
+        <article class="text-wrap py-3">
+          <h5 class="font-small text-gray-500 my-3">{{post.created_at}}</h5>
+          <h3 class="font-semibold text-gray-800 mb-3">{{post.title}}</h3>
+          <p class="leading-7 text-gray-600 w-11/12">{{post.intro}}</p>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
   </section>
 {% endblock %}
